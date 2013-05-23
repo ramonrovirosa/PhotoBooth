@@ -5,14 +5,24 @@
 
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".HomeActivity" >
+    
+    <GridView       
+            android:id="@+id/gridView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:columnWidth="331dp"
+            android:gravity="center"
+            android:numColumns="1"
+            android:stretchMode="columnWidth"
+            android:paddingBottom="62dip" >
+        </GridView>
 
   <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        >
+        android:layout_alignParentBottom="true">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dip"
