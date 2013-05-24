@@ -1,4 +1,0 @@
-PhotoBooth
-==========
-
-Android PhotoBooth Application
