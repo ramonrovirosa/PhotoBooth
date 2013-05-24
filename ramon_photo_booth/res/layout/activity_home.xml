@@ -5,7 +5,8 @@
 
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context=".HomeActivity" >
+    tools:context=".HomeActivity"
+      android:background="@drawable/blackcurtain">
     
     <GridView       
             android:id="@+id/gridView"
@@ -15,7 +16,8 @@
             android:gravity="center"
             android:numColumns="1"
             android:stretchMode="columnWidth"
-            android:paddingBottom="62dip" >
+            android:paddingBottom="62dip"
+            >
         </GridView>
 
   <RelativeLayout

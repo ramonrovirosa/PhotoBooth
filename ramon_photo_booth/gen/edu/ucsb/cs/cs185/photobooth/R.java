@@ -21,10 +21,13 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int camera_button=0x7f020000;
-        public static final int filmstrip_small=0x7f020001;
-        public static final int gallery_button=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
+        public static final int blackcurtain=0x7f020000;
+        public static final int camera_button=0x7f020001;
+        public static final int filmstrip=0x7f020002;
+        public static final int filmstrip_small=0x7f020003;
+        public static final int gallery_button=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int redstage=0x7f020006;
     }
     public static final class id {
         public static final int BtnColorPickerOk=0x7f080002;
