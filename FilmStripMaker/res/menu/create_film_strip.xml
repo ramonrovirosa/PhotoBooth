@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:title="Save"
+        android:showAsAction="ifRoom"
+        android:id="@+id/save" />
+    
+    <item
+    	android:title="Filter" 
+    	android:showAsAction="ifRoom">
+	    <menu>
+	        <item
+	            android:id="@+id/normal"
+	            android:title="None" />
+	        <item
+	            android:id="@+id/sepia"
+	            android:title="Sepia" />
+	        <item
+	            android:id="@+id/retro"
+	            android:title="Retro" />
+	        <item
+	            android:id="@+id/invert"
+	            android:title="Invert" />
+	    </menu>
+	</item>
+
+</menu>
