@@ -3,17 +3,14 @@ package edu.ucsb.cs.cs185.photobooth;
 import java.io.File;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ShareActionProvider;
-import android.widget.Toast;
 
 public class FullImageActivity extends Activity {
 
@@ -24,6 +21,9 @@ public class FullImageActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.full_image);
+		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 //
 //		// get intent data
 		Intent i = getIntent();
@@ -77,6 +77,11 @@ public class FullImageActivity extends Activity {
 			startActivity(Intent.createChooser(share, "Share PhotoBooth Image"));
 			
 			return true;
+			
+		case android.R.id.home:
+			NavUtils.navigateUpFromSameTask(this);
+			return true;
+			
 		default:
 			return super.onOptionsItemSelected(item);
 		}
