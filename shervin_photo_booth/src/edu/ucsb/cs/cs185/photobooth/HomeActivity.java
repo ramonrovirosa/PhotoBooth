@@ -3,12 +3,15 @@ package edu.ucsb.cs.cs185.photobooth;
 import java.io.File;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
+import android.view.View;
 import android.widget.GridView;
+import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 
@@ -50,5 +53,11 @@ public class HomeActivity extends Activity {
 		sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
 		
 	}
+
+    public void Camera(View view){
+        Intent myIntent = new Intent(HomeActivity.this, CameraActivity.class);
+        //myIntent.putExtra("key", value);
+        HomeActivity.this.startActivity(myIntent);
+    }
 
 }

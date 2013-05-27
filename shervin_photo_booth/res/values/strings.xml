@@ -6,4 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="Gallery">Gallery</string>
 
+    <color name="black">#000000</color>
+
 </resources>

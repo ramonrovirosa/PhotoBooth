@@ -53,7 +53,8 @@
             android:layout_alignParentBottom="true" 
             android:scaleType="fitCenter"
             android:layout_toRightOf="@id/ViewColorPickerHelper"
-            android:padding="5dip"/>
+            android:padding="5dip"
+            android:onClick="Camera"    />
         
         	<ImageButton
             android:id="@+id/GalleryButton"
