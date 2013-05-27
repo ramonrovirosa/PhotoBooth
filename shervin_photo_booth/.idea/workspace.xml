@@ -12,27 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b6da4ba-2968-408e-b337-2be2a4e482dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gen/edu/ucsb/cs/cs185/photobooth/CameraPreview.java" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/.classpath" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/.project" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/.settings/org.eclipse.jdt.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/PhotoBooth.apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes.dex" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/HomeActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/ImageAdapter.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R$attr.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R$dimen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R$style.class" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/classes/edu/ucsb/cs/cs185/photobooth/R.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/dexedLibs/android-support-v4-a5a21891a7c07e4e6a89be3064b58436.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/jarlist.cache" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/res/drawable-hdpi/camera_button.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/res/drawable-hdpi/filmstrip.png" afterPath="" />
@@ -45,15 +32,11 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/res/drawable-xhdpi/filmstrip.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/res/drawable-xhdpi/ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/res/drawable-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/bin/resources.ap_" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/gen/edu/ucsb/cs/cs185/photobooth/BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/gen/edu/ucsb/cs/cs185/photobooth/R.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/ic_launcher-web.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/libs/android-support-v4.jar" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/proguard-project.txt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/project.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/drawable-hdpi/blackcurtain.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/drawable-hdpi/camera_button.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/drawable-hdpi/filmstrip.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/drawable-hdpi/filmstrip_small.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/drawable-hdpi/gallery_button.png" afterPath="" />
@@ -65,8 +48,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/drawable-xhdpi/filmstrip.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/drawable-xhdpi/ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/drawable-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/layout/activity_home.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/menu/home.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/values-sw600dp/dimens.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/values-sw720dp-land/dimens.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/values-v11/styles.xml" afterPath="" />
@@ -74,23 +55,22 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/values/dimens.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/values/strings.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/res/values/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/src/edu/ucsb/cs/cs185/photobooth/HomeActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ramon_photo_booth/src/edu/ucsb/cs/cs185/photobooth/ImageAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/activity_camera_preview.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/HomeActivity.java" afterPath="$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_home.xml" afterPath="$PROJECT_DIR$/res/layout/activity_home.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java" afterPath="$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_camera_activity.xml" afterPath="$PROJECT_DIR$/res/layout/activity_camera_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="shervin_photo_booth.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369684310921" ignored="false" />
     <file path="/activity_home.xml" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369684456118" ignored="false" />
     <file path="/HomeActivity.java" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369687709612" ignored="false" />
-    <file path="/fragment.java" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369684606741" ignored="false" />
-    <file path="/AndroidManifest.xml" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369688177302" ignored="false" />
-    <file path="/CameraPreview.java" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369686313079" ignored="false" />
-    <file path="/CameraActivity.java" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369688053640" ignored="false" />
-    <file path="/activity_camera_activity.xml" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369688410113" ignored="false" />
+    <file path="/fragment.java" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369690031509" ignored="false" />
+    <file path="/AndroidManifest.xml" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369691045476" ignored="false" />
+    <file path="/CameraPreview.java" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369690992006" ignored="false" />
+    <file path="/CameraActivity.java" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369690070761" ignored="false" />
+    <file path="/activity_camera_activity.xml" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369690601565" ignored="false" />
     <file path="/a.xml" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369688135838" ignored="false" />
     <file path="/strings.xml" changelist="1b6da4ba-2968-408e-b337-2be2a4e482dd" time="1369688444675" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -165,13 +145,24 @@
       <file leaf-file-name="CameraActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="38" selection-start="2185" selection-end="2185" vertical-scroll-proportion="0.73140496">
+            <state line="63" column="10" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.23553719">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1191#1521#0" expanded="true" />
-                <element signature="e#1510#1511#0" expanded="true" />
-                <element signature="e#2699#2973#0" expanded="true" />
-                <element signature="e#2954#2955#0" expanded="true" />
+                <element signature="e#1335#2063#0" expanded="true" />
+                <element signature="e#2052#2053#0" expanded="true" />
+                <element signature="e#2172#2479#0" expanded="true" />
+                <element signature="e#2460#2461#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CameraPreview.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gen/edu/ucsb/cs/cs185/photobooth/CameraPreview.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="5" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -180,7 +171,7 @@
       <file leaf-file-name="activity_camera_activity.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/layout/activity_camera_activity.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="37" selection-start="510" selection-end="510" vertical-scroll-proportion="-3.1730769">
+            <state line="8" column="42" selection-start="326" selection-end="326" vertical-scroll-proportion="-2.3076923">
               <folding />
             </state>
           </provider>
@@ -189,19 +180,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="31" selection-start="282" selection-end="282" vertical-scroll-proportion="-4.8">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="53" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0">
+            <state line="32" column="54" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -229,9 +211,10 @@
         <option value="$PROJECT_DIR$/res/layout/activity_camera_preview.xml" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraPreview.java" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/HomeActivity.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_camera_activity.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_camera_activity.xml" />
+        <option value="$PROJECT_DIR$/gen/edu/ucsb/cs/cs185/photobooth/CameraPreview.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java" />
       </list>
     </option>
@@ -373,6 +356,11 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="edu.ucsb.cs.cs185.photobooth" />
+    </key>
+  </component>
   <component name="RunManager" selected="Android Application.shervin_photo_booth">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -509,12 +497,12 @@
       <created>1369434192030</created>
       <updated>1369434192030</updated>
       <workItem from="1369434195163" duration="1183000" />
-      <workItem from="1369684307873" duration="4177000" />
+      <workItem from="1369684307873" duration="6251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5360000" />
+    <option name="totallyTimeSpent" value="7434000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -543,7 +531,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.67241377" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.6710875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -668,6 +656,13 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="31" selection-start="282" selection-end="282" vertical-scroll-proportion="0.17118402">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="42" selection-start="1613" selection-end="1613" vertical-scroll-proportion="0.0">
@@ -675,23 +670,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="53" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="31" selection-start="282" selection-end="282" vertical-scroll-proportion="-4.8">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_camera_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="37" selection-start="510" selection-end="510" vertical-scroll-proportion="-3.1730769">
+        <state line="8" column="42" selection-start="326" selection-end="326" vertical-scroll-proportion="-2.3076923">
           <folding />
         </state>
       </provider>
@@ -699,15 +680,31 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java">
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="38" selection-start="2185" selection-end="2185" vertical-scroll-proportion="0.73140496">
+        <state line="32" column="54" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/edu/ucsb/cs/cs185/photobooth/CameraPreview.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="5" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1191#1521#0" expanded="true" />
-            <element signature="e#1510#1511#0" expanded="true" />
-            <element signature="e#2699#2973#0" expanded="true" />
-            <element signature="e#2954#2955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="10" selection-start="2064" selection-end="2064" vertical-scroll-proportion="0.23553719">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1335#2063#0" expanded="true" />
+            <element signature="e#2052#2053#0" expanded="true" />
+            <element signature="e#2172#2479#0" expanded="true" />
+            <element signature="e#2460#2461#0" expanded="true" />
           </folding>
         </state>
       </provider>
