@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+	android:id="@+id/RootView"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context=".HomeActivity"
@@ -43,7 +43,7 @@
             android:background="?android:attr/dividerVertical" 
             android:layout_centerHorizontal="true"/>
         <ImageButton
-            android:id="@+id/BtnColorPickerOk"
+            android:id="@+id/CameraButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
@@ -53,7 +53,8 @@
             android:layout_alignParentBottom="true" 
             android:scaleType="fitCenter"
             android:layout_toRightOf="@id/ViewColorPickerHelper"
-            android:padding="5dip"/>
+            android:padding="5dip"
+            android:onClick="takePhotos"/>
         
         	<ImageButton
             android:id="@+id/GalleryButton"
@@ -66,7 +67,8 @@
             android:src="@drawable/gallery_button" 
  			android:scaleType="fitCenter"
  			android:padding="5dip"
-            android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true"
+            android:onClick="galleryClicked"/>
         
     </RelativeLayout>
 </RelativeLayout>
