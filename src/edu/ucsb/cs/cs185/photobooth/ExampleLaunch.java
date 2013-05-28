@@ -38,7 +38,7 @@ public class ExampleLaunch extends Activity {
 	}
 	
 	public void Launch(View v){
-		
+		//test mod for eclipse
 		//this is how you would launch it. the launcher saves the testpics as static to pass
 		//to CreateFilmStrip because they are too large to bundle
 		CreateFilmStripLauncher.Launch(this,testpic,testpic,testpic);

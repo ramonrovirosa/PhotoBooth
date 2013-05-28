@@ -31,78 +31,40 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v,
 			int position, long id) {
-				
-			//System.out.println("position is: " + position);
-
-				
-				
-			// Sending image id to FullScreenActivity
-			Intent i = new Intent(HomeActivity.this, FullImageActivity.class);
-			
-			Integer pos  = position;
-			
-			// passing array index
-			i.putExtra("Position", position);
-//			setResult(RESULT_OK, i);
-			//finish();
-			startActivity(i);
-				
-//				Context context = getApplicationContext();
-//				CharSequence text = "Hello toast!";
-//				int duration = Toast.LENGTH_SHORT;
-//				Toast toast = Toast.makeText(context, text, duration);
-//				toast.show();
-//			
-				
-				
+		
+				// Sending image id to FullScreenActivity
+				Intent i = new Intent(HomeActivity.this, FullImageActivity.class);
+				i.putExtra("Position", position);
+				startActivity(i);
 			}
-			});
+		});
 		
 		
 		
 	}
 	
 	public void galleryClicked(View view){
-		
-//		Context context = getApplicationContext();
-//		CharSequence text = "Gallery Clicked!";
-//		int duration = Toast.LENGTH_SHORT;
-//		Toast toast = Toast.makeText(context, text, duration);
-//		toast.show();
-		
 		Intent intObj = new Intent(this, GridGallery.class);
-		startActivity(intObj);
-		
+		startActivity(intObj);	
 	}
 	
-	public void takePhotos(View view){
-		/*Context context = getApplicationContext();
-		CharSequence text = "Take Photos!";
-		int duration = Toast.LENGTH_SHORT;
-		Toast toast = Toast.makeText(context, text, duration);
-		toast.show();*/
-		
+	public void takePhotos(View view){		
+		//change this to start shervin's
 		Intent i = new Intent(this,ExampleLaunch.class);
 		startActivity(i);
-		
-		
 	}
 
 
 	
 	public void createDirectory() {
 		File storageDir = new File(StoragePath.get(this));
-		
 		System.out.println(storageDir);
-		
 		if(!storageDir.exists()){
 				storageDir.mkdir();
 				System.out.println("making photoBooth directory");
 		}
-		
 		//sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+storageDir)));
 		sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
-		
 	}
 
 //	@Override
