@@ -43,17 +43,9 @@ public class HomeActivity extends Activity {
 			
 			// passing array index
 			i.putExtra("Position", position);
-//			setResult(RESULT_OK, i);
-			//finish();
 			startActivity(i);
 				
-//				Context context = getApplicationContext();
-//				CharSequence text = "Hello toast!";
-//				int duration = Toast.LENGTH_SHORT;
-//				Toast toast = Toast.makeText(context, text, duration);
-//				toast.show();
-//			
-				
+			
 				
 			}
 			});

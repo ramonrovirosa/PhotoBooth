@@ -3,9 +3,10 @@ package edu.ucsb.cs.cs185.photobooth;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.lang.ref.SoftReference;
+import java.util.HashMap;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -30,9 +31,11 @@ public class ImageAdapter extends BaseAdapter {
 		);
 	public File[] fileName = root.listFiles();
 	int count = fileName.length;
-
+	
+	
 	public ImageAdapter(Context c) {
 		mContext = c;
+		
 	}
 
 	public int getCount() {
@@ -51,15 +54,14 @@ public class ImageAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
 		Uri uri = Uri.fromFile(fileName[position]);
-		
+		Integer pos = position;
 		Bitmap myBitmap=decodeFile(fileName[position]);
-		
-		
 		
 		ImageView imageView = new ImageView(mContext);
 		//imageView.setImageResource(mThumbIds[position]);
 		//imageView.setImageURI(uri);
 		imageView.setImageBitmap(myBitmap);
+		
 		imageView.setPadding(0,0,0,0);
 		imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 		

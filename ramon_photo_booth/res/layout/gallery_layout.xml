@@ -13,7 +13,7 @@
     android:background="@drawable/red_curtain"
     android:columnWidth="90dp"
     android:gravity="center"
-    android:horizontalSpacing="10dp"
+    android:horizontalSpacing="20dp"
     android:numColumns="auto_fit"
     android:stretchMode="columnWidth"
     android:verticalSpacing="10dp" >
