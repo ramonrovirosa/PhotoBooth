@@ -1,6 +1,0 @@
-INDEX VERSION 1.126+/Users/Alex/PhotoBoothWorkSpace/.metadata/.plugins/org.eclipse.jdt.core
-1827964156.index
-1215623814.index
-2084753311.index
-192689630.index
-3267731792.index
