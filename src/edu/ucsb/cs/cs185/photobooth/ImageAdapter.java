@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 import android.view.Display;
@@ -88,5 +89,7 @@ public class ImageAdapter extends BaseAdapter {
 	   } catch (FileNotFoundException e) {}
 	     return null;
 	}
+	  
+
 	  
 }

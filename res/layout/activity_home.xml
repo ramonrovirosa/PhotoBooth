@@ -12,23 +12,25 @@
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:orientation="vertical" >
 
         <GridView
             android:id="@+id/gridView"
             android:layout_width="match_parent"
-            android:layout_height="403dp"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:numColumns="1"
             android:scaleType="fitCenter" >
         </GridView>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="60dp"
-        android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_alignParentBottom="true" >
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" >
 
         <ImageButton
             android:id="@+id/GalleryButton"
@@ -38,7 +40,8 @@
             android:onClick="galleryClicked"
             android:padding="5dip"
             android:scaleType="fitCenter"
-            android:src="@drawable/gallery_icon" />
+            android:src="@drawable/gallery_icon" 
+            android:background="#dd222222"/>
 
         <ImageButton
             android:id="@+id/CameraButton"
@@ -48,7 +51,17 @@
             android:onClick="takePhotos"
             android:padding="5dip"
             android:scaleType="fitCenter"
-            android:src="@drawable/camera_icon" />
+            android:src="@drawable/camera_icon"
+            android:background="#dd222222" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
 
 </RelativeLayout>
