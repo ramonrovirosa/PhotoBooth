@@ -176,6 +176,7 @@ public class CreateFilmStrip extends Activity {
 	    protected void onPreExecute() {
 			actionBarEnabled = false;
 			progress.setVisibility(View.VISIBLE);
+			imgview.setAlpha(.5f);
 		}
 		
 		@Override
@@ -188,6 +189,7 @@ public class CreateFilmStrip extends Activity {
 			} else {
 				msg = "Film strip failed to save.";
 			}
+			imgview.setAlpha(1f);
 			Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
 		}
 		
