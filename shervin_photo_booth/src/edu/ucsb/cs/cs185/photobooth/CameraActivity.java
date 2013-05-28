@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
@@ -38,6 +39,8 @@ public class CameraActivity extends Activity {
         // Create our Preview view and set it as the content of our activity.
         mPreview = new CameraPreview(this, mCamera);
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+        preview.getLayoutParams().height = preview.getWidth();
+
         preview.addView(mPreview);
 
         final Camera.PictureCallback mPicture = new Camera.PictureCallback() {
