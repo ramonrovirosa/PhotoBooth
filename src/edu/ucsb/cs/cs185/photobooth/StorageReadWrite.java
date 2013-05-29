@@ -14,6 +14,8 @@ import android.util.Log;
 
 public class StorageReadWrite {
 
+	public static final String fileHeader = "PhotoBooth_";
+	
 	//returns true of successful, false if not
 	public static boolean store(Context c,Bitmap img){
 		File pictureFile = createFile(c);
@@ -49,7 +51,7 @@ public class StorageReadWrite {
 	    // Create a media file name with a timestamp
 	    String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(new Date());
 	    File mediaFile;
-	    String mImageName="Film_"+ timeStamp +".png";
+	    String mImageName= fileHeader + timeStamp +".png";
 	    mediaFile = new File(mediaStorageDir.getPath() + File.separator + mImageName);  
 	    return mediaFile;
 	} 

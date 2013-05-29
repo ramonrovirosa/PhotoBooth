@@ -4,8 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 public class StoragePath {
 
@@ -24,8 +26,8 @@ public class StoragePath {
 		
 		//place all pngs into validFiles
 		for(int i=0;i<fileNames.length;i++){
-			String path = fileNames[i].getAbsolutePath();
-			if(path.substring(path.lastIndexOf(".")+1).equalsIgnoreCase("png")){
+			String name = fileNames[i].getName();
+			if(isValidImage(name)){
 				validFiles.add(fileNames[i]);
 			}
 		}
@@ -35,6 +37,15 @@ public class StoragePath {
 	
 	public static File getSingleFile(Context c,int index){
 		return getFileList(c).get(index);
+	}
+	
+	@SuppressLint("DefaultLocale")
+	private static boolean isValidImage(String name){
+		Log.d("StoragePath",name);
+		return (
+				name.startsWith(StorageReadWrite.fileHeader) &&
+				name.toLowerCase().endsWith(".png")
+			);
 	}
 	
 }
