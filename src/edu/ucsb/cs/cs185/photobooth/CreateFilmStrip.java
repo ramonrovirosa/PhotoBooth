@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.Menu;
@@ -111,6 +112,10 @@ public class CreateFilmStrip extends Activity {
 			return true;
 		case R.id.save:
 			saveImage();
+			return true;
+		case R.id.home:
+			Intent intObj=new Intent(this, HomeActivity.class);
+			startActivity(intObj);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

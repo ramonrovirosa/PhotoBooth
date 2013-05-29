@@ -1,9 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
+     <item
+        android:title="Home"
+        android:showAsAction="ifRoom"
+        android:id="@+id/home"
+        android:icon="@drawable/home" />
+    
+    
     <item
         android:title="Save"
         android:showAsAction="ifRoom"
-        android:id="@+id/save" />
+        android:id="@+id/save"
+        android:icon="@android:drawable/ic_menu_save" />
     
     <item
     	android:title="Filter" 
@@ -26,5 +34,6 @@
 	            android:title="Grayscale" />
 	    </menu>
 	</item>
-
+	
+    
 </menu>
