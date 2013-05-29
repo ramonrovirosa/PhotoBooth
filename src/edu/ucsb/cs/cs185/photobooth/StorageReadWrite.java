@@ -9,8 +9,12 @@ import java.util.Date;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 public class StorageReadWrite {
 
@@ -37,6 +41,28 @@ public class StorageReadWrite {
 	    } 
 	}
 	
+	public static void deleteImg(Context c,int position){
+		File file=StoragePath.getSingleFile(c, position);
+		boolean deleted = file.delete();
+		c.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
+		Toast.makeText(c, "Image Deleted",Toast.LENGTH_LONG).show();
+	}
+	
+	public static void changeImgName(Context c,int position){
+		File file=StoragePath.getSingleFile(c, position);
+		String origPath = file.getPath();
+		String filename = origPath.substring(origPath.lastIndexOf('/')+1);
+		origPath = origPath.substring(0,origPath.lastIndexOf('/')+1);
+		String newFileName = "Img"+filename.substring(filename.indexOf('_'));
+		
+		File oldFile = new File(origPath + filename);
+		File newFile = new File(origPath + newFileName);
+		
+		oldFile.renameTo(newFile);
+		
+		c.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
+	}
+	
 	//lint suppressed because we don't really care about the date's format, we just want a filename
 	@SuppressLint("SimpleDateFormat")
 	private static File createFile(Context c){
@@ -55,5 +81,7 @@ public class StorageReadWrite {
 	    mediaFile = new File(mediaStorageDir.getPath() + File.separator + mImageName);  
 	    return mediaFile;
 	} 
+	
+	
 	
 }

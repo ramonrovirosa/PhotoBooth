@@ -114,8 +114,11 @@ public class CreateFilmStrip extends Activity {
 			saveImage();
 			return true;
 		case R.id.home:
-			Intent intObj=new Intent(this, HomeActivity.class);
-			startActivity(intObj);
+			//it is debatable what should be done here
+			//but if we start a new intent, we are going to fuck out activity stack
+			//and everything will explode
+			//for now finish, but later we can make it work together with the camera to end nicely
+			finish();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

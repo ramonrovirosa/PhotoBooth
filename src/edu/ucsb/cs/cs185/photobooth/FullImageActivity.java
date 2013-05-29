@@ -3,6 +3,8 @@ package edu.ucsb.cs.cs185.photobooth;
 import java.io.File;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,7 +19,7 @@ public class FullImageActivity extends Activity {
 	ImageView imageView;
 	Uri uri;
 	int position;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,7 +30,7 @@ public class FullImageActivity extends Activity {
 		position = pos;
 		uri = Uri.fromFile(StoragePath.getSingleFile(this, pos));
 		ImageView imageView = (ImageView) findViewById(R.id.full_image_view);
-		//imageView.setImageResource(mThumbIds[position]);
+		// imageView.setImageResource(mThumbIds[position]);
 		imageView.setImageURI(uri);
 	}
 
@@ -37,7 +39,7 @@ public class FullImageActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate menu resource file.
 		getMenuInflater().inflate(R.menu.home, menu);
-		MenuItem item=menu.findItem(R.id.menu_item_share);
+		MenuItem item = menu.findItem(R.id.menu_item_share);
 		return true;
 	}
 
@@ -51,10 +53,10 @@ public class FullImageActivity extends Activity {
 			share.putExtra(Intent.EXTRA_STREAM, uri);
 			startActivity(Intent.createChooser(share, "Share PhotoBooth Image"));
 			return true;
-			
+
 		case R.id.menu_item_delete:
 			deleteImage();
-			finish();
+			return true;
 		case android.R.id.home:
 			finish();
 			return true;
@@ -63,16 +65,32 @@ public class FullImageActivity extends Activity {
 			return super.onOptionsItemSelected(item);
 		}
 	}
-	
+
 	public void deleteImage(){
-		File file=StoragePath.getSingleFile(this, position);
-		boolean deleted = file.delete();
 		
-		sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
-		Toast.makeText(this, "Image Deleted",Toast.LENGTH_LONG).show();
-
-		
-		
+		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+	    alertDialog.setTitle("Delete Image?");
+	    String message = "";
+	    message += "Press \"Delete\" to permanently erase the image.\n";
+	    message += "Press \"Remove\" to no longer display the image in the app.";
+	    alertDialog.setMessage(message);
+	    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Delete", new DialogInterface.OnClickListener() {
+	    	public void onClick(DialogInterface dialog, int id) {
+	    		StorageReadWrite.deleteImg(getApplicationContext(), position);
+	    		finish();
+	    	} 
+	    }); 
+	    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+	    	public void onClick(DialogInterface dialog, int id) {
+	    	dialog.dismiss();
+	    	}
+	    }); 
+	    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Remove", new DialogInterface.OnClickListener() {
+	    	public void onClick(DialogInterface dialog, int id) {
+	    		StorageReadWrite.changeImgName(getApplicationContext(), position);
+	    		finish();
+	    	}
+	    });
+	    alertDialog.show();
 	}
-
 }
