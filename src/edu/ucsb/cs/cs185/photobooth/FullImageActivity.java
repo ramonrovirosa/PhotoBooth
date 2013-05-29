@@ -54,7 +54,17 @@ public class FullImageActivity extends Activity {
 			
 		case R.id.menu_item_delete:
 			deleteImage();
+<<<<<<< HEAD
 			finish();
+=======
+<<<<<<< HEAD
+			finish();
+=======
+			Intent intObj=new Intent(this, HomeActivity.class);
+			startActivity(intObj);
+			return true;
+>>>>>>> d5997fcc5ebca7fbd4ea0aa32b77ee67b3286aef
+>>>>>>> 00e723761f97751ec99c559a62630438ec0991cc
 		case android.R.id.home:
 			finish();
 			return true;
