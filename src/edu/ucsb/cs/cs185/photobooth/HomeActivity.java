@@ -50,7 +50,7 @@ public class HomeActivity extends Activity {
 				// Sending image id to FullScreenActivity
 				Intent i = new Intent(HomeActivity.this, FullImageActivity.class);
 				i.putExtra("Position", position);
-				startActivity(i);
+				startActivityForResult(i,1);
 			}
 		});
 	}
