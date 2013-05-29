@@ -21,6 +21,9 @@
 	        <item
 	            android:id="@+id/invert"
 	            android:title="Invert" />
+	        <item
+	            android:id="@+id/grayscale"
+	            android:title="Grayscale" />
 	    </menu>
 	</item>
 

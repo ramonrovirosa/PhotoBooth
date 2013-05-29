@@ -46,13 +46,14 @@
         <ImageButton
             android:id="@+id/CameraButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:background="@color/home_button"
             android:onClick="takePhotos"
             android:padding="5dip"
             android:scaleType="fitCenter"
-            android:src="@drawable/camera_icon"
-            android:background="@color/home_button"/>
+            android:src="@drawable/camera_icon" />
+
     </LinearLayout>
 
     <ProgressBar

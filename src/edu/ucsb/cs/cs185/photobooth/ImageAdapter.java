@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -27,25 +28,31 @@ public class ImageAdapter extends BaseAdapter {
 	private Context mContext;
 	private File root = null;
 	private File [] fileName;
-	private ArrayList<Bitmap>  resizedImages = null;
+	private ArrayList<Bitmap> resizedImages;
+	private ArrayList<File> validFiles = null;
 	private int count;
 
 	public ImageAdapter(Context c) {
 		mContext = c;
-		root = new File(StoragePath.get(mContext));
-		fileName = root.listFiles();
-		count = fileName.length;
+		validFiles = StoragePath.getFileList(mContext);
+		count = validFiles.size();
 		resizedImages = new ArrayList<Bitmap>();
 		for(int i=0;i<count;i++){
-			Bitmap addme = decodeFile(fileName[i]);
+			Bitmap addme = decodeFile(validFiles.get(i));
 			if(addme!=null){
 				resizedImages.add(addme);
 			}
 		}
+		
 	}
-
+	
+	public File getFile(int i){
+		return validFiles.get(i);
+	}
+	
+	
 	public int getCount() {
-		return fileName.length;
+		return count;
 	}
 
 	public Object getItem(int position) {
@@ -59,6 +66,7 @@ public class ImageAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Bitmap myBitmap = resizedImages.get(position);
+		
 		ImageView imageView = new ImageView(mContext);
 		imageView.setImageBitmap(myBitmap);
 		imageView.setPadding(0,0,0,0);

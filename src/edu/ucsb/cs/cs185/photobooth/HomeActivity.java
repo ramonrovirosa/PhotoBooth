@@ -28,6 +28,7 @@ public class HomeActivity extends Activity {
 	
 	GridView gridView = null;
 	ProgressBar progress = null;
+	ImageAdapter imgAdptr = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -95,15 +96,19 @@ public class HomeActivity extends Activity {
 	
 	public void galleryClicked(View view){
 		Intent intObj = new Intent(this, GridGallery.class);
-		startActivity(intObj);	
+		startActivityForResult(intObj,1);	
 	}
 	
 	public void takePhotos(View view){		
 		//change this to start shervin's
 		Intent i = new Intent(this,ExampleLaunch.class);
-		startActivity(i);
+		startActivityForResult(i,1);
 	}
 
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+			new loadAdapter().execute(this);
+		}
+	
 	public void createDirectory() {
 		File storageDir = new File(StoragePath.get(this));
 		if(!storageDir.exists()){
@@ -112,11 +117,15 @@ public class HomeActivity extends Activity {
 		sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
 	}
 
-	private class loadAdapter extends AsyncTask<Context, Void, ImageAdapter>{
+	private class loadAdapter extends AsyncTask<Context, ImageAdapter, ImageAdapter>{
 
 		@Override
 		protected ImageAdapter doInBackground(Context... c) {
-			 return new ImageAdapter(c[0]);
+			return new ImageAdapter(c[0]);
+		}
+		
+		@Override
+		protected void onProgressUpdate(ImageAdapter... temp){
 		}
 		
 		@Override
@@ -126,6 +135,7 @@ public class HomeActivity extends Activity {
 		
 		@Override
 	    protected void onPostExecute(ImageAdapter result) {
+			imgAdptr = result;
 			gridView.setAdapter(result);
 			setListener();
 			progress.setVisibility(View.INVISIBLE);

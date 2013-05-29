@@ -102,6 +102,9 @@ public class CreateFilmStrip extends Activity {
 		case R.id.invert:
 			setLoadImage(FilmStripMaker.INVERT);
 			return true;
+		case R.id.grayscale:
+			setLoadImage(FilmStripMaker.GRAYSCALE);
+			return true;
 		case android.R.id.home:
 			//if back button is pressed, end activity
 			finish();

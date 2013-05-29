@@ -18,7 +18,8 @@ public class FilmStripMaker {
 	static final public int SEPIA = 1;
 	static final public int RETRO = 2;
 	static final public int INVERT = 3;
-	static final public int num_filters = 4;
+	static final public int GRAYSCALE = 4;
+	static final public int num_filters = 5;
 	
 	static Bitmap make(Bitmap filmstrip,Bitmap [] imgs, int filter){
 		//validity check
@@ -120,6 +121,10 @@ public class FilmStripMaker {
 			r = fixRange(255-inputRed);
 			g = fixRange(255-inputGreen);
 			b = fixRange(255-inputBlue);
+			break;
+		case GRAYSCALE:
+			int val = (inputRed + inputBlue + inputGreen)/3;
+			r = g = b = fixRange(val);
 			break;
 		default:
 			return color;
