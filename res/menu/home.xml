@@ -7,6 +7,10 @@
         android:title="@string/action_settings"/>
     <item
         android:id="@+id/menu_item_share"
+<<<<<<< HEAD
+=======
+        android:actionProviderClass="android.widget.ShareActionProvider"
+>>>>>>> d5997fcc5ebca7fbd4ea0aa32b77ee67b3286aef
         android:icon="@android:drawable/ic_menu_share"
         android:showAsAction="ifRoom"
         android:title="Share"/>
