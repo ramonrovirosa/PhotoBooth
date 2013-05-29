@@ -14,6 +14,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.LruCache;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -165,6 +167,8 @@ public class GridGallery extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gallery_layout);
+		
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		GridView gridview = (GridView) findViewById(R.id.grid_view);
 		myImageAdapter = new ImageAdapter(this);
@@ -224,6 +228,23 @@ public class GridGallery extends Activity {
 
 	public Bitmap getBitmapFromMemCache(String key) {
 		return (Bitmap) mMemoryCache.get(key);
+	}
+	
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.gallery_menu, menu);
+		return true;
+	}
+	
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			return true;
+
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 }

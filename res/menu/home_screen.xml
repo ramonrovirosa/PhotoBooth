@@ -4,6 +4,8 @@
         <item
         android:id="@+id/full_screen"
         android:showAsAction="ifRoom"
-        android:title="Full Screen"/>
+        android:title="Full Screen"
+        android:icon="@drawable/fullscreen"
+        />
 
 </menu>
