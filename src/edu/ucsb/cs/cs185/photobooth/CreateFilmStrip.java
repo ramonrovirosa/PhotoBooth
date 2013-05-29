@@ -151,6 +151,7 @@ public class CreateFilmStrip extends Activity {
 		protected void onPostExecute(Bitmap result){
 			selectedFilm = result;
 			imgview.setImageBitmap(selectedFilm);
+			imgview.setAlpha(1f);
 			progress.setVisibility(View.INVISIBLE);
 			actionBarEnabled = true;
 		}
@@ -159,7 +160,7 @@ public class CreateFilmStrip extends Activity {
 	    protected void onPreExecute() {
 			actionBarEnabled = false;
 			selectedFilm = null;
-			imgview.setImageBitmap(null);
+			imgview.setAlpha(.5f);
 			progress.setVisibility(View.VISIBLE);
 		}
 		
