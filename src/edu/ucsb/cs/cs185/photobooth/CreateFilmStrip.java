@@ -114,11 +114,8 @@ public class CreateFilmStrip extends Activity {
 			saveImage();
 			return true;
 		case R.id.home:
-			//it is debatable what should be done here
-			//but if we start a new intent, we are going to fuck out activity stack
-			//and everything will explode
-			//for now finish, but later we can make it work together with the camera to end nicely
-			finish();
+			//if home icon is pushed
+			finishAndGoHome();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -207,6 +204,14 @@ public class CreateFilmStrip extends Activity {
 		
 	}
 	
+	private void finishAndGoHome(){
+		//finish with val == true to go home
+		//finish with val == false to go back
+		Intent returnIntent = new Intent();
+		returnIntent.putExtra("GoHome",true);
+		setResult(RESULT_OK,returnIntent);     
+		finish();
+	}
 	
 	private void alert(String... args){
 		//args: title, message, negative button, quit button

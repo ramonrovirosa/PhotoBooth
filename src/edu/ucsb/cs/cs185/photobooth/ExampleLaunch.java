@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.Menu;
@@ -42,7 +43,23 @@ public class ExampleLaunch extends Activity {
 		//this is how you would launch it. the launcher saves the testpics as static to pass
 		//to CreateFilmStrip because they are too large to bundle
 		CreateFilmStripLauncher.Launch(this,testpic,testpic,testpic);
-	
 	}
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	  if (requestCode == 1) {
+	     if(resultCode == RESULT_OK){      
+	         boolean home = data.getBooleanExtra("GoHome",false);
+	         if(home){
+	        	 finish();
+	         }
+	     }
+	     if (resultCode == RESULT_CANCELED) {    
+	         //do nothing
+	    	 //back button is pressed
+	     }
+	  }
+	}
+	
+	
 
 }
