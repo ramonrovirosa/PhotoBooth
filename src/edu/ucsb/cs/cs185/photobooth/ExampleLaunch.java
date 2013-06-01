@@ -11,8 +11,12 @@ import android.graphics.BitmapFactory;
 import android.view.Menu;
 import android.view.View;
 
-public class ExampleLaunch extends Activity {
+public class ExampleLaunch extends CreateFilmStripLauncher {
 
+	
+	//now when you extend CreateFilmStripLauncher
+	//it will take car of launching CreateFilmStrip
+	//with ending the activity or not when you return from it
 	
 	private Bitmap testpic;
 	@Override
@@ -38,27 +42,14 @@ public class ExampleLaunch extends Activity {
 		return true;
 	}
 	
-	public void Launch(View v){
+	public void LaunchBtnPress(View v){
 		//test mod for eclipse
 		//this is how you would launch it. the launcher saves the testpics as static to pass
 		//to CreateFilmStrip because they are too large to bundle
-		CreateFilmStripLauncher.Launch(this,testpic,testpic,testpic);
+		Launch(testpic,testpic,testpic);
 	}
 	
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-	  if (requestCode == 1) {
-	     if(resultCode == RESULT_OK){      
-	         boolean home = data.getBooleanExtra("GoHome",false);
-	         if(home){
-	        	 finish();
-	         }
-	     }
-	     if (resultCode == RESULT_CANCELED) {    
-	         //do nothing
-	    	 //back button is pressed
-	     }
-	  }
-	}
+	
 	
 	
 
