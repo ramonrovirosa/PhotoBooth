@@ -4,6 +4,7 @@ package edu.ucsb.cs.cs185.photobooth;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 public abstract class CreateFilmStripLauncher extends Activity {
 
@@ -14,8 +15,10 @@ public abstract class CreateFilmStripLauncher extends Activity {
 		if(imgs.length<3)return;
 		//validity check #2
 		for(int i=0;i<imgs.length;i++){
-			if(imgs[i] == null || FilmStripMaker.checkDimensions(imgs[i].getWidth(), imgs[i].getHeight()) )
+			if(imgs[i] == null || !FilmStripMaker.checkDimensions(imgs[i].getWidth(), imgs[i].getHeight()) ){
+				Log.v("launch","image has wrong dimensions");
 				return;
+			}
 		}
 		
 		images = imgs.clone();

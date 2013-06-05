@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
@@ -46,6 +47,7 @@ public class ExampleLaunch extends CreateFilmStripLauncher {
 		//test mod for eclipse
 		//this is how you would launch it. the launcher saves the testpics as static to pass
 		//to CreateFilmStrip because they are too large to bundle
+		Log.v("launch","launch button pressed");
 		Launch(testpic,testpic,testpic);
 	}
 	
