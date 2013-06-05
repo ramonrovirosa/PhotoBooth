@@ -73,7 +73,9 @@ public class HomeActivity extends Activity {
 		int duration = Toast.LENGTH_SHORT;
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.show();
-		
+
+        Intent myIntent = new Intent(HomeActivity.this, CameraActivity.class);
+        HomeActivity.this.startActivity(myIntent);
 	}
 
 
@@ -124,7 +126,6 @@ public class HomeActivity extends Activity {
 //        ((ViewGroup) view).removeAllViews();
 //        }
 //    }
-	
 	
 
 }
