@@ -43,10 +43,11 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     public void surfaceDestroyed(SurfaceHolder holder) {
         // empty. Take care of releasing the Camera preview in your activity.
-        if (mCamera != null) {
-            mCamera.stopPreview();
-        }
+//        if (mCamera != null) {
+//            mCamera.stopPreview();
+//        }
     }
+
 
     public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
         // If your preview can change or rotate, take care of those events here.

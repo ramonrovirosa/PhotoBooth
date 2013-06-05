@@ -1,12 +1,14 @@
 package edu.ucsb.cs.cs185.photobooth;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -60,6 +62,11 @@ public class CameraActivity extends Activity {
                             // inform the user that recording has stopped
                             //setCaptureButtonText("Capture");
                             isRecording = false;
+
+                            Intent imageIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                            Uri uriSavedImage = getOutputMediaFileUri(MEDIA_TYPE_VIDEO);
+                            imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+                            startActivityForResult(imageIntent,0);
                         } else {
                             // initialize video camera
                             if (prepareVideoRecorder()) {
@@ -104,7 +111,7 @@ public class CameraActivity extends Activity {
         mMediaRecorder.setCamera(mCamera);
 
         // Step 2: Set sources
-        mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+        //mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
 
 //        // Step 3: Set a CamcorderProfile (requires API Level 8 or higher)
@@ -120,7 +127,7 @@ public class CameraActivity extends Activity {
         mMediaRecorder.setPreviewDisplay(mPreview.getHolder().getSurface());
 
         // Step 5.5: Set the video capture rate to a low number
-        mMediaRecorder.setCaptureRate(0.1); // capture a frame every 10 seconds
+        mMediaRecorder.setCaptureRate(1); // capture a frame every 10 seconds
 
         // Step 6: Prepare configured MediaRecorder
         try {
@@ -148,14 +155,14 @@ public class CameraActivity extends Activity {
         // using Environment.getExternalStorageState() before doing this.
 
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "MyCameraApp");
+                Environment.DIRECTORY_PICTURES), "PhotoBooth");
         // This location works best if you want the created images to be shared
         // between applications and persist after your app has been uninstalled.
 
         // Create the storage directory if it does not exist
         if (! mediaStorageDir.exists()){
             if (! mediaStorageDir.mkdirs()){
-                Log.d("MyCameraApp", "failed to create directory");
+                Log.d("PhotoBooth", "failed to create directory");
                 return null;
             }
         }
@@ -182,6 +189,12 @@ public class CameraActivity extends Activity {
         super.onPause();
         releaseMediaRecorder();       // if you are using MediaRecorder, release it first
         releaseCamera();              // release the camera immediately on pause event
+
+//        if (mCamera != null) {
+//            mCamera.setPreviewCallback(null);
+//            mPreview.getHolder().removeCallback(mPreview);
+//            mCamera.release();
+//        }
     }
 
     private void releaseMediaRecorder(){

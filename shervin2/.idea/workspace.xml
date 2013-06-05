@@ -18,12 +18,12 @@
     <file path="/CameraPreview.java" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370410283629" ignored="false" />
     <file path="/Dummy.txt" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370406724635" ignored="false" />
     <file path="/camera.xml" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370406787975" ignored="false" />
-    <file path="/CameraActivity.java" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370408462227" ignored="false" />
+    <file path="/CameraActivity.java" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370411697886" ignored="false" />
     <file path="/activity_home.xml" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370408070817" ignored="false" />
     <file path="/fragment.java" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370408901759" ignored="false" />
     <file path="/HomeActivity.java" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370409220787" ignored="false" />
     <file path="/AndroidManifest.xml" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370409391039" ignored="false" />
-    <file path="$PROJECT_DIR$/gen/edu/ucsb/cs/cs185/photobooth/Manifest.java" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370409393494" ignored="false" />
+    <file path="$PROJECT_DIR$/gen/edu/ucsb/cs/cs185/photobooth/Manifest.java" changelist="294c198c-f5f9-4f30-a2af-5e36956ddbb2" time="1370410828449" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,11 +87,21 @@
       <file leaf-file-name="CameraActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="34" selection-start="2680" selection-end="2680" vertical-scroll-proportion="0.0">
+            <state line="125" column="41" selection-start="4847" selection-end="4847" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#1542#3072#0" expanded="true" />
-                <element signature="e#3053#3054#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1609#3480#0" expanded="true" />
+                <element signature="e#3461#3462#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="70" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -111,7 +121,7 @@
       <file leaf-file-name="CameraPreview.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraPreview.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="5" selection-start="1368" selection-end="1368" vertical-scroll-proportion="0.45188284">
+            <state line="45" column="32" selection-start="1537" selection-end="1537" vertical-scroll-proportion="0.30125523">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -387,12 +397,12 @@
       <changelist id="294c198c-f5f9-4f30-a2af-5e36956ddbb2" name="Default" comment="" />
       <created>1370406020147</created>
       <updated>1370406020147</updated>
-      <workItem from="1370406028400" duration="4279000" />
+      <workItem from="1370406028400" duration="6241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4279000" />
+    <option name="totallyTimeSpent" value="6241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -409,13 +419,13 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32891247" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17144907" sideWeight="0.6710875" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32891247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -499,43 +509,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_home.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="20" selection-start="1066" selection-end="1066" vertical-scroll-proportion="-6.4444447">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/view/View.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1141" column="0" selection-start="51217" selection-end="51217" vertical-scroll-proportion="0.8737728">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="42" selection-start="2131" selection-end="2131" vertical-scroll-proportion="0.69008267">
-          <folding>
-            <element signature="e#712#730#0" expanded="true" />
-            <element signature="e#893#911#0" expanded="true" />
-            <element signature="e#1241#1259#0" expanded="true" />
-            <element signature="e#1570#1588#0" expanded="true" />
-            <element signature="e#2013#2031#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="34" selection-start="2680" selection-end="2680" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#1542#3072#0" expanded="true" />
-            <element signature="e#3053#3054#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -549,9 +526,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="70" selection-start="662" selection-end="662" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/java/net/InetAddress.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.8064516">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_home.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="20" selection-start="1066" selection-end="1066" vertical-scroll-proportion="-6.4444447">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="41" selection-start="4847" selection-end="4847" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1609#3480#0" expanded="true" />
+            <element signature="e#3461#3462#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/ucsb/cs/cs185/photobooth/CameraPreview.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="5" selection-start="1368" selection-end="1368" vertical-scroll-proportion="0.45188284">
+        <state line="45" column="32" selection-start="1537" selection-end="1537" vertical-scroll-proportion="0.30125523">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
