@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,6 +35,8 @@ public class CameraActivity extends Activity {
     public static final int MEDIA_TYPE_IMAGE = 1;
     public static final int MEDIA_TYPE_VIDEO = 2;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,45 +51,85 @@ public class CameraActivity extends Activity {
         preview.addView(mPreview);
 
 
+        final Camera.PictureCallback mPicture = new Camera.PictureCallback() {
+
+            @Override
+            public void onPictureTaken(byte[] data, Camera camera) {
+
+                File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+                if (pictureFile == null){
+                    Log.d(TAG, "Error creating media file, check storage permissions: ");
+                    //        e.getMessage());
+                    return;
+                }
+
+                try {
+                    FileOutputStream fos = new FileOutputStream(pictureFile);
+                    fos.write(data);
+                    fos.flush();
+                    fos.close();
+                    MediaStore.Images.Media.insertImage(getContentResolver(), pictureFile.getAbsolutePath(), pictureFile.getName(), pictureFile.getName());
+                } catch (FileNotFoundException e) {
+                    Log.d(TAG, "File not found: " + e.getMessage());
+                } catch (IOException e) {
+                    Log.d(TAG, "Error accessing file: " + e.getMessage());
+                }
+                mCamera.startPreview();
+            }
+        };
+
         // Add a listener to the Capture button
         Button captureButton = (Button) findViewById(R.id.button_capture);
         captureButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (isRecording) {
-                            // stop recording and release camera
-                            mMediaRecorder.stop();  // stop the recording
-                            releaseMediaRecorder(); // release the MediaRecorder object
-                            mCamera.lock();         // take camera access back from MediaRecorder
-
-                            // inform the user that recording has stopped
-                            //setCaptureButtonText("Capture");
-                            isRecording = false;
-
-                            Intent imageIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                            Uri uriSavedImage = getOutputMediaFileUri(MEDIA_TYPE_VIDEO);
-                            imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
-                            startActivityForResult(imageIntent,0);
-                        } else {
-                            // initialize video camera
-                            if (prepareVideoRecorder()) {
-                                // Camera is available and unlocked, MediaRecorder is prepared,
-                                // now you can start recording
-                                mMediaRecorder.start();
-
-                                // inform the user that recording has started
-                                //setCaptureButtonText("Stop");
-                                isRecording = true;
-                            } else {
-                                // prepare didn't work, release the camera
-                                releaseMediaRecorder();
-                                // inform user
-                            }
-                        }
+                        // get an image from the camera
+                        mCamera.takePicture(null, null, mPicture);
+                        mCamera.release();
                     }
                 }
         );
+
+        // Add a listener to the Capture button
+//        Button captureButton = (Button) findViewById(R.id.button_capture);
+//        captureButton.setOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        if (isRecording) {
+//                            // stop recording and release camera
+//                            mMediaRecorder.stop();  // stop the recording
+//                            releaseMediaRecorder(); // release the MediaRecorder object
+//                            mCamera.lock();         // take camera access back from MediaRecorder
+//
+//                            // inform the user that recording has stopped
+//                            //setCaptureButtonText("Capture");
+//                            isRecording = false;
+//
+//                            Intent imageIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+//                            Uri uriSavedImage = getOutputMediaFileUri(MEDIA_TYPE_VIDEO);
+//                            imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, uriSavedImage);
+//                            startActivityForResult(imageIntent,0);
+//                        } else {
+//                            // initialize video camera
+//                            if (prepareVideoRecorder()) {
+//                                // Camera is available and unlocked, MediaRecorder is prepared,
+//                                // now you can start recording
+//                                mMediaRecorder.start();
+//
+//                                // inform the user that recording has started
+//                                //setCaptureButtonText("Stop");
+//                                isRecording = true;
+//                            } else {
+//                                // prepare didn't work, release the camera
+//                                releaseMediaRecorder();
+//                                // inform user
+//                            }
+//                        }
+//                    }
+//                }
+//        );
     }
 
     /** A safe way to get an instance of the Camera object. */
@@ -145,9 +189,9 @@ public class CameraActivity extends Activity {
     }
 
     /** Create a file Uri for saving an image or video */
-    private static Uri getOutputMediaFileUri(int type){
-        return Uri.fromFile(getOutputMediaFile(type));
-    }
+//    private static Uri getOutputMediaFileUri(int type){
+//        return Uri.fromFile(getOutputMediaFile(type));
+//    }
 
     /** Create a File for saving an image or video */
     private static File getOutputMediaFile(int type){
