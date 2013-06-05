@@ -1,6 +1,5 @@
 package edu.ucsb.cs.cs185.photobooth;
 
-import java.io.File;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -8,11 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class FullImageActivity extends Activity {
 
@@ -58,7 +55,7 @@ public class FullImageActivity extends Activity {
 			deleteImage();
 			return true;
 		case android.R.id.home:
-			finish();
+			finishResult(false);
 			return true;
 
 		default:
@@ -66,6 +63,18 @@ public class FullImageActivity extends Activity {
 		}
 	}
 
+	@Override
+	public void onBackPressed() {
+		finishResult(false);
+	}
+	
+	private void finishResult(boolean result){
+		Intent returnIntent = new Intent();
+		returnIntent.putExtra("modified",result);
+		setResult(RESULT_OK,returnIntent);     
+		finish();
+	}
+	
 	public void deleteImage(){
 		
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -77,7 +86,7 @@ public class FullImageActivity extends Activity {
 	    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Delete", new DialogInterface.OnClickListener() {
 	    	public void onClick(DialogInterface dialog, int id) {
 	    		StorageReadWrite.deleteImg(getApplicationContext(), position);
-	    		finish();
+	    		finishResult(true);
 	    	} 
 	    }); 
 	    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
@@ -88,7 +97,7 @@ public class FullImageActivity extends Activity {
 	    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Remove", new DialogInterface.OnClickListener() {
 	    	public void onClick(DialogInterface dialog, int id) {
 	    		StorageReadWrite.changeImgName(getApplicationContext(), position);
-	    		finish();
+	    		finishResult(true);
 	    	}
 	    });
 	    alertDialog.show();

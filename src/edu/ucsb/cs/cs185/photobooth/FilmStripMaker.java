@@ -133,5 +133,8 @@ public class FilmStripMaker {
 		return Color.rgb(r, g, b);
 	}
 	
+	static boolean checkDimensions(int w, int l){
+		return ( w==width && l==length);
+	}
 	
 }

@@ -29,6 +29,7 @@ public class HomeActivity extends Activity {
 	GridView gridView = null;
 	ProgressBar progress = null;
 	ImageAdapter imgAdptr = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,7 +77,6 @@ public class HomeActivity extends Activity {
 		Toast.makeText(this, "Full screen mode enabled, press back button to exit.",Toast.LENGTH_LONG).show();
 		findViewById(R.id.GalleryButton).setVisibility(View.INVISIBLE);
 		findViewById(R.id.CameraButton).setVisibility(View.INVISIBLE);
-		
 		ActionBar act = getActionBar();
 		act.hide();
 	}
@@ -106,7 +106,17 @@ public class HomeActivity extends Activity {
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-			new loadAdapter().execute(this);
+			if (requestCode == 1) {
+				if(resultCode == RESULT_OK){      
+			         Boolean modified=data.getBooleanExtra("modified", true); 
+			         if(modified){
+			        	 new loadAdapter().execute(this);
+			         }
+			     }
+			     if (resultCode == RESULT_CANCELED) {    
+			         //do nothing for now
+			     }
+			}
 		}
 	
 	public void createDirectory() {

@@ -10,7 +10,13 @@ public abstract class CreateFilmStripLauncher extends Activity {
 	public static Bitmap [] images = null;
 	
 	public void Launch(Bitmap... imgs){
+		//validity check
 		if(imgs.length<3)return;
+		//validity check #2
+		for(int i=0;i<imgs.length;i++){
+			if(imgs[i] == null || FilmStripMaker.checkDimensions(imgs[i].getWidth(), imgs[i].getHeight()) )
+				return;
+		}
 		
 		images = imgs.clone();
 		

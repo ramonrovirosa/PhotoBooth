@@ -12,7 +12,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.LruCache;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +25,8 @@ import android.widget.ImageView;
 
 public class GridGallery extends Activity {
 
+	private boolean modified = false;//if image has been deleted
+	
 	public class ImageAdapter extends BaseAdapter {
 
 		private Context mContext;
@@ -202,24 +203,39 @@ public class GridGallery extends Activity {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
 
-				// System.out.println("position is: " + position);
-
-				// Sending image id to FullScreenActivity
 				Intent i = new Intent(GridGallery.this, FullImageActivity.class);
-
-				Integer pos = position;
-
-				// passing array index
 				i.putExtra("Position", position);
-				// setResult(RESULT_OK, i);
-				// finish();
-				startActivity(i);
+				startActivityForResult(i,1);
 
 			}
 		});
 
 	}
 
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 1) {
+			if(resultCode == RESULT_OK){      
+		         modified=data.getBooleanExtra("modified", true); 
+		         //reset the image adapter here. Ramon probably needs to do this
+		     }
+		     if (resultCode == RESULT_CANCELED) {    
+		         //do nothing for now
+		     }
+		}
+	}
+	
+	@Override
+	public void finish(){
+		finishResult();
+	}
+	
+	private void finishResult(){
+		Intent returnIntent = new Intent();
+		returnIntent.putExtra("modified",modified);
+		setResult(RESULT_OK,returnIntent);     
+		super.finish();
+	}
+	
 	public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
 		if (getBitmapFromMemCache(key) == null) {
 			mMemoryCache.put(key, bitmap);
