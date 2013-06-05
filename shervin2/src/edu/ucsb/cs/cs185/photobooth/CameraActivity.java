@@ -96,7 +96,7 @@ public class CameraActivity extends Activity {
 
     private boolean prepareVideoRecorder(){
 
-        mCamera = getCameraInstance();
+        //mCamera = getCameraInstance();
         mMediaRecorder = new MediaRecorder();
 
         // Step 1: Unlock and set camera to MediaRecorder
