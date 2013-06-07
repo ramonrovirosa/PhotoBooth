@@ -1,5 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
+    
+    
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -7,6 +9,11 @@
         android:title="@string/action_settings"/>
     <item
         android:id="@+id/menu_item_share"
+<<<<<<< HEAD:res/menu/home.xml
+=======
+        android:showAsAction="always"
+        android:title="Share"
+>>>>>>> 4bc813fe6da0b02f3663fc8e058bac77ec339935:ramon_photo_booth/res/menu/home.xml
         android:icon="@android:drawable/ic_menu_share"
         android:showAsAction="ifRoom"
         android:title="Share"/>

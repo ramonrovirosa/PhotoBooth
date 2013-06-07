@@ -24,7 +24,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter {
-	
+
 	private Context mContext;
 	private File root = null;
 	private File [] fileName;
@@ -43,14 +43,14 @@ public class ImageAdapter extends BaseAdapter {
 				resizedImages.add(addme);
 			}
 		}
-		
+
 	}
-	
+
 	public File getFile(int i){
 		return validFiles.get(i);
 	}
-	
-	
+
+
 	public int getCount() {
 		return count;
 	}
@@ -66,7 +66,7 @@ public class ImageAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		Bitmap myBitmap = resizedImages.get(position);
-		
+
 		ImageView imageView = new ImageView(mContext);
 		imageView.setImageBitmap(myBitmap);
 		imageView.setPadding(0,0,0,0);
@@ -74,7 +74,7 @@ public class ImageAdapter extends BaseAdapter {
 		imageView.setLayoutParams(new GridView.LayoutParams(getViewWidth(), GridView.LayoutParams.WRAP_CONTENT));
 		return imageView;
 	}
-	
+
 	public int getViewWidth(){
 		WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 		Display display = wm.getDefaultDisplay();
@@ -83,7 +83,7 @@ public class ImageAdapter extends BaseAdapter {
 		int width = size.x;
 		return (int) (width*.75);
 	}
-	
+
 	//decodes image and scales it to reduce memory consumption
 	  private Bitmap decodeFile(File f){
 	     try {
@@ -97,7 +97,7 @@ public class ImageAdapter extends BaseAdapter {
 	   } catch (FileNotFoundException e) {}
 	     return null;
 	}
-	  
 
-	  
+
+
 }

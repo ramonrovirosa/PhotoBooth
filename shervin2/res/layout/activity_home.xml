@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:id="@+id/RootView"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context=".HomeActivity"
+    android:background="@drawable/red_curtain">
+    
+    <GridView       
+            android:id="@+id/gridView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:columnWidth="331dp"
+            android:gravity="center"
+            android:numColumns="1"
+            android:stretchMode="columnWidth"
+            android:paddingBottom="60dip"
+            >
+        </GridView>
+
+  <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/actionBarColor" 
+    	>
+        
+      
+		<ImageButton
+            android:id="@+id/GalleryButton"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"     
+            android:src="@drawable/gallery_icon" 
+ 			android:scaleType="fitCenter"
+ 			android:padding="5dip"
+            android:layout_alignParentBottom="true"
+            android:onClick="galleryClicked"/>
+      
+       
+        <ImageButton
+            android:id="@+id/CameraButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/camera_icon" 
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            
+            android:padding="5dip"
+            android:onClick="takePhotos"/>
+        
+      </LinearLayout>  	
+        
+  
+</RelativeLayout>

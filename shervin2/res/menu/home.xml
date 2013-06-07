@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    
+    
+    <item
+<<<<<<< HEAD:res/menu/example_launch.xml
+        android:id="@+id/flip"
+        android:showAsAction="ifRoom"
+        android:title="FLIP" 
+        />
+=======
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    
+    <item
+        android:id="@+id/menu_item_share"
+        android:showAsAction="always"
+        android:title="Share"
+        android:icon="@android:drawable/ic_menu_share"
+         />
+>>>>>>> 4bc813fe6da0b02f3663fc8e058bac77ec339935:shervin2/res/menu/home.xml
+
+</menu>

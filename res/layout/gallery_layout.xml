@@ -10,10 +10,14 @@
     android:id="@+id/grid_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+<<<<<<< HEAD:res/layout/gallery_layout.xml
     android:background="@drawable/redcurtain"
+=======
+    android:background="@drawable/red_curtain"
+>>>>>>> 4bc813fe6da0b02f3663fc8e058bac77ec339935:ramon_photo_booth/res/layout/gallery_layout.xml
     android:columnWidth="90dp"
     android:gravity="center"
-    android:horizontalSpacing="10dp"
+    android:horizontalSpacing="20dp"
     android:numColumns="auto_fit"
     android:stretchMode="columnWidth"
     android:verticalSpacing="10dp" >

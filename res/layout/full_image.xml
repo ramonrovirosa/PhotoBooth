@@ -2,7 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD:res/layout/full_image.xml
     android:background="@drawable/redcurtain" >
+=======
+    android:background="@drawable/red_curtain" >
+>>>>>>> 4bc813fe6da0b02f3663fc8e058bac77ec339935:ramon_photo_booth/res/layout/full_image.xml
 
     <ImageView
         android:id="@+id/full_image_view"
