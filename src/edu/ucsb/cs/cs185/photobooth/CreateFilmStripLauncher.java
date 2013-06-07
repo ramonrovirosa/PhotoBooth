@@ -34,6 +34,9 @@ public abstract class CreateFilmStripLauncher extends Activity {
 	     if(resultCode == RESULT_OK){      
 	         boolean home = data.getBooleanExtra("GoHome",false);
 	         if(home){
+	        	 Intent returnIntent = new Intent();
+	        	 returnIntent.putExtra("modified",true);
+	        	 setResult(RESULT_OK,returnIntent);     
 	        	 finish();
 	         }
 	     }

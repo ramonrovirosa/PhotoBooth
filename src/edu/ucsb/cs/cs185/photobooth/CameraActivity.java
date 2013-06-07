@@ -7,6 +7,7 @@ import android.R.color;
 import android.R.drawable;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -197,7 +198,11 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			mCamera.release(); // release the camera for other applications
 			mCamera = null;
 		}
-		finish();
+		//finish here
+		Intent returnIntent = new Intent();
+   	 	returnIntent.putExtra("modified",true);
+   	 	setResult(RESULT_OK,returnIntent);     
+   	 	finish();
 	}
 
 	private void btnPressed(int i){
