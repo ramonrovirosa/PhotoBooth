@@ -13,12 +13,14 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
+import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup.LayoutParams;
@@ -50,6 +52,8 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	int btnSelect = -1;
 	private Bitmap testpic;
 
+	private static boolean frontMode = true;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -86,26 +90,49 @@ public class CameraActivity extends CreateFilmStripLauncher {
 
 		});
 
+		initCamera();
+		btnPressed(0);
+	}
+
+	private void initCamera(){
+		preview.removeAllViews();
 		mCamera = getCameraInstance();
 		mCameraPreview = new CameraPreview(this, mCamera);
+		
 		preview.addView(mCameraPreview);
 		Button captureButton = (Button) findViewById(R.id.button_capture);
 		captureButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if(btnSelect >= 0 && btnSelect < 3)
-				mCamera.takePicture(null, null, mPicture);
+					mCamera.takePicture(null, null, mPicture);
 			}
 		});
 	}
-
-
 	
+	
+	public static int getFrontCameraId() {
+		CameraInfo ci = new CameraInfo();
+		for (int i = 0 ; i < Camera.getNumberOfCameras(); i++) {
+			Camera.getCameraInfo(i, ci);
+			if ((ci.facing == CameraInfo.CAMERA_FACING_FRONT))
+			{
+				return i;
+			}
+
+		}
+
+		return CameraInfo.CAMERA_FACING_BACK; // No front-facing camera found
+	}
+
 	/** A safe way to get an instance of the Camera object. */
 	public static Camera getCameraInstance() {
 		Camera c = null;
 		try {
-			c = Camera.open(); // attempt to get a Camera instance
+			if(frontMode)
+				c = Camera.open(getFrontCameraId()); // attempt to get a Camera instance
+			else
+				c = Camera.open();
 		} catch (Exception e) {
 			// Camera is not available (in use or does not exist)
 			return null;
@@ -119,11 +146,12 @@ public class CameraActivity extends CreateFilmStripLauncher {
 
 		@Override
 		public void onPictureTaken(byte[] data, Camera camera) {
-			Bitmap img = Cropper.crop(data);
+			Bitmap img = Cropper.crop(data , frontMode);
 			if(img == null) return;
 			imgs[btnSelect] = img;
 			btns[btnSelect].setImageBitmap(Cropper.cropButton(img, (int)(btns[btnSelect].getWidth()*.85)));
 			mCameraPreview.reset();
+			btnPressed((btnSelect + 1)%btns.length);
 		}
 	};
 
@@ -136,7 +164,7 @@ public class CameraActivity extends CreateFilmStripLauncher {
 				.getLayoutParams();
 		params.height = height - picheight;
 		cover.setLayoutParams(params);
-		
+
 		int bw = btns[0].getWidth();
 		btns[0].setMaxHeight(bw);
 		btns[0].setMinimumHeight(bw);
@@ -172,13 +200,12 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		finish();
 	}
 
-	@SuppressLint("NewApi")
 	private void btnPressed(int i){
 		if(btnSelect>=0)
 			btns[btnSelect].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
 		btnSelect = i;
 		btns[i].setBackgroundColor(getResources().getColor(color.holo_blue_bright));
-		
+
 	}
 	public void MakeFilm(View v){
 		for(int i=0;i<imgs.length;i++){
@@ -196,6 +223,22 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	}
 	public void btn3(View v){
 		btnPressed(2);
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch (item.getItemId()) {
+		//get which option is pressed and create/set that image
+		case R.id.flip:
+			frontMode = !frontMode;
+			mCamera.release();
+			initCamera();
+			return true;
+		case R.id.home:
+			finish();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 	
 }

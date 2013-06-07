@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class Cropper {
 
-	public static Bitmap crop(byte [] data){
+	public static Bitmap crop(byte [] data, boolean isFront){
 		
 		Bitmap original = BitmapFactory.decodeByteArray(data , 0, data.length);
 		if(original==null)return null;
@@ -23,8 +23,22 @@ public class Cropper {
 		
 		Log.v("camera_debug","Scaled: height: "+scaled.getHeight()+" Width: "+scaled.getWidth());
 		
+		
 		Matrix matrix = new Matrix();
+		
+		
+		
+		if(isFront){
+			Matrix fmatrix = new Matrix();
+			fmatrix.postRotate(180);
+			scaled = Bitmap.createBitmap(scaled,0,0,
+					scaled.getWidth(),scaled.getHeight(),fmatrix,true);
+		}
+			
 		matrix.postRotate(90);
+		
+			
+		
 		
 		Bitmap cropped = Bitmap.createBitmap(scaled,0,0,
 				FilmStripMaker.length,FilmStripMaker.width,null,false);
@@ -32,6 +46,14 @@ public class Cropper {
 		cropped = Bitmap.createBitmap(cropped,0,0,
 				FilmStripMaker.length,FilmStripMaker.width,matrix,true);
 		Log.v("camera_debug","Cropped: height: "+cropped.getHeight()+" Width: "+cropped.getWidth());
+		
+		isFront = false;
+		if(isFront){
+			matrix = new Matrix();
+			matrix.postRotate(180);
+			cropped = Bitmap.createBitmap(cropped,0,0,
+					cropped.getWidth(),cropped.getHeight(),matrix,true);
+		}
 		
 		return cropped;
 	}
