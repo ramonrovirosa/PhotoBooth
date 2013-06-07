@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/button_capture"
-            android:text="Button"
+            android:text="Make Film"
             android:onClick="MakeFilm" />
         
     </RelativeLayout>

@@ -42,6 +42,11 @@ SurfaceHolder.Callback {
 		try{
 			mCamera.startPreview();
 		} catch (Exception e){
+			try{
+				mCamera.startPreview();
+			} catch (Exception e1){
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}
 	}

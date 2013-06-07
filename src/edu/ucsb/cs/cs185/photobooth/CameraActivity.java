@@ -3,10 +3,15 @@ package edu.ucsb.cs.cs185.photobooth;
 import java.io.IOException;
 import java.io.InputStream;
 
+import android.R.color;
+import android.R.drawable;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
@@ -36,6 +41,7 @@ public class CameraActivity extends CreateFilmStripLauncher {
 
 	private final String TAG = this.toString();
 
+	Color buttonColor;
 	FrameLayout preview;
 	RelativeLayout backdrop;
 	RelativeLayout cover;
@@ -63,9 +69,11 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		imgs = new Bitmap[3];
 		btns = new ImageButton[3];
 		btns[0] = (ImageButton)findViewById(R.id.imageButton1);
+		btns[0].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
 		btns[1] = (ImageButton)findViewById(R.id.imageButton2);
+		btns[1].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
 		btns[2]  =(ImageButton)findViewById(R.id.imageButton3);
-		
+		btns[2].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
 		ViewTreeObserver vto = backdrop.getViewTreeObserver();
 		vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 
@@ -164,8 +172,13 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		finish();
 	}
 
+	@SuppressLint("NewApi")
 	private void btnPressed(int i){
+		if(btnSelect>=0)
+			btns[btnSelect].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
 		btnSelect = i;
+		btns[i].setBackgroundColor(getResources().getColor(color.holo_blue_bright));
+		
 	}
 	public void MakeFilm(View v){
 		for(int i=0;i<imgs.length;i++){
