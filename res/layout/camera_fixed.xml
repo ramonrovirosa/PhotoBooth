@@ -19,22 +19,58 @@
         android:layout_height="250dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:background="#FFFFFFFF" >
+        android:background="#FFAAAAAA" >
 
         <Button
             android:id="@+id/button_capture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
             android:text="Capture" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" >
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@drawable/camera_icon"
+                android:onClick="btn1" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@drawable/camera_icon"
+                android:onClick="btn2" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@drawable/camera_icon"
+                android:onClick="btn3" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:onClick="LaunchBtnPress"
-            android:text="Launch CreateFilmStrip" />
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/button_capture"
+            android:text="Button"
+            android:onClick="MakeFilm" />
+        
     </RelativeLayout>
 
     </RelativeLayout>

@@ -21,6 +21,7 @@ import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -38,7 +39,9 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	FrameLayout preview;
 	RelativeLayout backdrop;
 	RelativeLayout cover;
-
+	ImageButton btns [];
+	Bitmap imgs[];
+	int btnSelect = -1;
 	private Bitmap testpic;
 
 	@Override
@@ -57,7 +60,12 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		preview = (FrameLayout) findViewById(R.id.camera_preview);
 		backdrop = (RelativeLayout) findViewById(R.id.backlayout);
 		cover = (RelativeLayout) findViewById(R.id.cover);
-
+		imgs = new Bitmap[3];
+		btns = new ImageButton[3];
+		btns[0] = (ImageButton)findViewById(R.id.imageButton1);
+		btns[1] = (ImageButton)findViewById(R.id.imageButton2);
+		btns[2]  =(ImageButton)findViewById(R.id.imageButton3);
+		
 		ViewTreeObserver vto = backdrop.getViewTreeObserver();
 		vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 
@@ -72,18 +80,19 @@ public class CameraActivity extends CreateFilmStripLauncher {
 
 		mCamera = getCameraInstance();
 		mCameraPreview = new CameraPreview(this, mCamera);
-
 		preview.addView(mCameraPreview);
 		Button captureButton = (Button) findViewById(R.id.button_capture);
 		captureButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				if(btnSelect >= 0 && btnSelect < 3)
 				mCamera.takePicture(null, null, mPicture);
 			}
 		});
-
 	}
 
+
+	
 	/** A safe way to get an instance of the Camera object. */
 	public static Camera getCameraInstance() {
 		Camera c = null;
@@ -103,8 +112,10 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		@Override
 		public void onPictureTaken(byte[] data, Camera camera) {
 			Bitmap img = Cropper.crop(data);
-			Launch(img, img, img);
-			
+			if(img == null) return;
+			imgs[btnSelect] = img;
+			btns[btnSelect].setImageBitmap(Cropper.cropButton(img, (int)(btns[btnSelect].getWidth()*.85)));
+			mCameraPreview.reset();
 		}
 	};
 
@@ -117,8 +128,14 @@ public class CameraActivity extends CreateFilmStripLauncher {
 				.getLayoutParams();
 		params.height = height - picheight;
 		cover.setLayoutParams(params);
-		Log.v("camera_debug", "width: " + width + " height: " + height
-				+ " picheight: " + picheight);
+		
+		int bw = btns[0].getWidth();
+		btns[0].setMaxHeight(bw);
+		btns[0].setMinimumHeight(bw);
+		btns[1].setMaxHeight(bw);
+		btns[1].setMinimumHeight(bw);
+		btns[2].setMaxHeight(bw);
+		btns[2].setMinimumHeight(bw);
 	}
 
 	@Override
@@ -147,4 +164,25 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		finish();
 	}
 
+	private void btnPressed(int i){
+		btnSelect = i;
+	}
+	public void MakeFilm(View v){
+		for(int i=0;i<imgs.length;i++){
+			if(imgs[i] == null)
+				return;
+		}
+		Launch(imgs);
+	}
+
+	public void btn1(View v){
+		btnPressed(0);
+	}
+	public void btn2(View v){
+		btnPressed(1);
+	}
+	public void btn3(View v){
+		btnPressed(2);
+	}
+	
 }

@@ -10,7 +10,7 @@ public class Cropper {
 	public static Bitmap crop(byte [] data){
 		
 		Bitmap original = BitmapFactory.decodeByteArray(data , 0, data.length);
-		
+		if(original==null)return null;
 		//these two are backwards from what you expect
 		int origHeight = original.getHeight();
 		int origWidth = original.getWidth();
@@ -34,6 +34,14 @@ public class Cropper {
 		Log.v("camera_debug","Cropped: height: "+cropped.getHeight()+" Width: "+cropped.getWidth());
 		
 		return cropped;
+	}
+	
+	public static Bitmap cropButton(Bitmap image, int width){
+		
+		double scale = (double)image.getWidth()/width;
+		int height = (int)(image.getHeight() / scale);
+		
+		return Bitmap.createScaledBitmap(image, width, height, false);
 	}
 	
 }
