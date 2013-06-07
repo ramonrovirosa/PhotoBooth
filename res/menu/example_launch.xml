@@ -3,7 +3,7 @@
     <item
         android:id="@+id/flip"
         android:showAsAction="ifRoom"
-        android:title="Flip"
+        android:title="FLIP" 
         />
 
 </menu>
