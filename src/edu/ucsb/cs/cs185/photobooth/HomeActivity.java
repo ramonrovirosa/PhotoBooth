@@ -101,7 +101,7 @@ public class HomeActivity extends Activity {
 	
 	public void takePhotos(View view){		
 		//change this to start shervin's
-		Intent i = new Intent(this,ExampleLaunch.class);
+		Intent i = new Intent(this,CameraActivity.class);
 		startActivityForResult(i,1);
 	}
 

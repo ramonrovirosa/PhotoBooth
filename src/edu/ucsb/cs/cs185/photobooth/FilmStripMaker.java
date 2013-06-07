@@ -21,6 +21,15 @@ public class FilmStripMaker {
 	static final public int GRAYSCALE = 4;
 	static final public int num_filters = 5;
 	
+	static final public double getRatio(){
+		return (double)width/(double)length;
+	}
+	
+	static final public int getCameraLength(int camera_width){
+		double ratio = getRatio();
+		return (int)(camera_width / ratio);
+	}
+	
 	static Bitmap make(Bitmap filmstrip,Bitmap [] imgs, int filter){
 		//validity check
 		if(imgs==null||imgs.length!=3||filmstrip==null){
