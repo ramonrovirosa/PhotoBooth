@@ -3,7 +3,7 @@ package edu.ucsb.cs.cs185.photobooth;
 import java.io.IOException;
 import java.io.InputStream;
 
-import android.R.color;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -50,6 +50,8 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// for now, get the testpic from the assets
+		ActionBar ab= getActionBar();
+		ab.setDisplayHomeAsUpEnabled(true);
 		try {
 			InputStream is = getAssets().open("testpic.png");
 			testpic = BitmapFactory.decodeStream(is);
@@ -229,12 +231,19 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			mCamera.release();
 			initCamera();
 			return true;
-		case R.id.home:
-			finish();
+		case android.R.id.home:
+			finishResult(false);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+	}
+	
+	private void finishResult(boolean result){
+		Intent returnIntent = new Intent();
+		returnIntent.putExtra("modified",result);
+		setResult(RESULT_OK,returnIntent);     
+		finish();
 	}
 	
 }
