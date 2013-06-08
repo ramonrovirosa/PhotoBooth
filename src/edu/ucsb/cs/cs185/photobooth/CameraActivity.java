@@ -35,7 +35,6 @@ public class CameraActivity extends CreateFilmStripLauncher {
 
 	private final String TAG = this.toString();
 
-	Color buttonColor;
 	FrameLayout preview;
 	RelativeLayout backdrop;
 	RelativeLayout cover;
@@ -44,6 +43,9 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	int btnSelect = -1;
 	private Bitmap testpic;
 
+	int btnColorStart = 0x77888888;
+	int btnColorSelect = 0x77EEEEEE;
+	
 	private static boolean frontMode = true;
 	
 	@Override
@@ -67,11 +69,11 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		imgs = new Bitmap[3];
 		btns = new ImageButton[3];
 		btns[0] = (ImageButton)findViewById(R.id.imageButton1);
-		btns[0].setBackgroundColor(android.graphics.Color.GRAY);
+		btns[0].setBackgroundColor(btnColorStart);
 		btns[1] = (ImageButton)findViewById(R.id.imageButton2);
-		btns[1].setBackgroundColor(android.graphics.Color.GRAY);
+		btns[1].setBackgroundColor(btnColorStart);
 		btns[2]  =(ImageButton)findViewById(R.id.imageButton3);
-		btns[2].setBackgroundColor(android.graphics.Color.GRAY);
+		btns[2].setBackgroundColor(btnColorStart);
 		ViewTreeObserver vto = backdrop.getViewTreeObserver();
 		vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 
@@ -200,9 +202,9 @@ public class CameraActivity extends CreateFilmStripLauncher {
 
 	private void btnPressed(int i){
 		if(btnSelect>=0)
-			btns[btnSelect].setBackgroundColor(android.graphics.Color.GRAY);
+			btns[btnSelect].setBackgroundColor(btnColorStart);
 		btnSelect = i;
-		btns[i].setBackgroundColor(android.graphics.Color.BLACK);
+		btns[i].setBackgroundColor(btnColorSelect);
 
 	}
 	public void MakeFilm(View v){
