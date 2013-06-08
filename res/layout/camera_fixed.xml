@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/backlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:id="@+id/backlayout">
+    android:orientation="vertical" >
 
     <FrameLayout
         android:id="@+id/camera_preview"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:scaleType="center" >
-
     </FrameLayout>
 
     <RelativeLayout
@@ -33,55 +32,57 @@
                 android:id="@+id/imageButton1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:layout_marginTop="40dp"
                 android:onClick="btn1"
-                android:src="@drawable/camera_icon" />
+                android:src="@drawable/gallery_icon" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:layout_marginTop="40dp"
                 android:onClick="btn2"
-                android:src="@drawable/camera_icon" />
+                android:src="@drawable/gallery_icon" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
-				android:layout_marginTop="40dp"
                 android:onClick="btn3"
-                android:src="@drawable/camera_icon" />
+                android:src="@drawable/gallery_icon" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true" 
-            android:layout_marginBottom="10dp">
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/backlayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/backlayout"
+        android:layout_marginBottom="10dp" >
 
-            <Button
+		  <Button
                 android:id="@+id/button1"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:onClick="MakeFilm"
-                android:text="Make Film" />
+                android:scaleType="fitCenter"
+                android:text="Make Strip" />
 
             <Button
                 android:id="@+id/button_capture"
                 android:layout_width="0dp"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="Capture" />
-
+                android:padding="15dp"
+                android:scaleType="fitCenter"
+                android:drawableTop="@drawable/camera_icon"
+                android:gravity="center_vertical"/>
         </LinearLayout>
     </RelativeLayout>
 
-    </RelativeLayout>
-
+</RelativeLayout>
