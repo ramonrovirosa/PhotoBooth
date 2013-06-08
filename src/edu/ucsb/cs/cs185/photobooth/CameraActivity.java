@@ -126,7 +126,7 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	}
 
 	/** A safe way to get an instance of the Camera object. */
-	public static Camera getCameraInstance() {
+	public Camera getCameraInstance() {
 		Camera c = null;
 		try {
 			if(frontMode)
@@ -134,8 +134,12 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			else
 				c = Camera.open();
 		} catch (Exception e) {
-			// Camera is not available (in use or does not exist)
-			return null;
+			 try{
+				 c = Camera.open();
+			 } catch (Exception e2){
+				 finish();
+				 return null;
+			 }
 		}
 
 		c.setDisplayOrientation(90);
@@ -243,6 +247,23 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		returnIntent.putExtra("modified",result);
 		setResult(RESULT_OK,returnIntent);     
 		finish();
+	}
+	
+	private boolean paused = false;
+	@Override 
+	public void onPause(){
+		super.onPause();
+		paused = true;
+		mCamera.release();
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		if(paused){
+			initCamera();
+			paused = false;
+		}
 	}
 	
 }
