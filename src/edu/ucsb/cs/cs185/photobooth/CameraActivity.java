@@ -178,7 +178,7 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.example_launch, menu);
+		getMenuInflater().inflate(R.menu.camera_menu, menu);
 		return true;
 	}
 
