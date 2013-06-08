@@ -71,7 +71,8 @@
                 android:layout_height="fill_parent"
                 android:onClick="MakeFilm"
                 android:scaleType="fitCenter"
-                android:text="Make Strip" />
+                android:text="Make Strip"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/button_capture"
