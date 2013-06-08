@@ -72,7 +72,7 @@
                 android:scaleType="fitCenter"
                 android:text="Make Strip"
                 android:textColor="#FFFFFF"
-                android:background="#77888888" />
+                android:background="@color/camera_bottom_button" />
 
             <Button
                 android:id="@+id/button_capture"
@@ -83,7 +83,7 @@
                 android:scaleType="fitCenter"
                 android:drawableTop="@drawable/camera_icon"
                 android:gravity="center_vertical"
-                android:background="#77888888"/>
+                android:background="@color/camera_bottom_button" />
         </LinearLayout>
     </RelativeLayout>
 

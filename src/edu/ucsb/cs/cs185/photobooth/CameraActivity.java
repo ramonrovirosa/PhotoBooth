@@ -43,6 +43,8 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	int btnSelect = -1;
 	private Bitmap testpic;
 
+	private boolean cameraUnlocked = true;
+	
 	int btnColorStart = 0x77888888;
 	int btnColorSelect = 0x77EEEEEE;
 	
@@ -100,8 +102,10 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		captureButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(btnSelect >= 0 && btnSelect < 3)
+				if(cameraUnlocked && btnSelect >= 0 && btnSelect < 3){
+					cameraUnlocked = false;
 					mCamera.takePicture(null, null, mPicture);
+				}
 			}
 		});
 	}
@@ -148,6 +152,7 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			btns[btnSelect].setImageBitmap(Cropper.cropButton(img, (int)(btns[btnSelect].getWidth()*.85)));
 			mCameraPreview.reset();
 			btnPressed((btnSelect + 1)%btns.length);
+			cameraUnlocked = true;
 		}
 	};
 
@@ -187,19 +192,11 @@ public class CameraActivity extends CreateFilmStripLauncher {
 	}
 
 	@Override
-	protected void onPause() {
-		super.onPause();
-		if (mCamera != null) {
-			mCamera.release(); // release the camera for other applications
-			mCamera = null;
-		}
-		//finish here
-		Intent returnIntent = new Intent();
-   	 	returnIntent.putExtra("modified",true);
-   	 	setResult(RESULT_OK,returnIntent);     
-   	 	finish();
+	public void finish(){
+		mCamera.release();
+		super.finish();
 	}
-
+	
 	private void btnPressed(int i){
 		if(btnSelect>=0)
 			btns[btnSelect].setBackgroundColor(btnColorStart);

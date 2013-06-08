@@ -31,6 +31,7 @@ public class StorageReadWrite {
 	        FileOutputStream fos = new FileOutputStream(pictureFile);
 	        img.compress(Bitmap.CompressFormat.PNG, 90, fos);
 	        fos.close();
+	        c.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
 	        return true;
 	    } catch (FileNotFoundException e) {
 	        Log.d(c.toString(), "File not found: " + e.getMessage());
