@@ -4,34 +4,25 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import android.R.color;
-import android.R.drawable;
-import android.os.Bundle;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Point;
-import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
-import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
-import android.util.DisplayMetrics;
+import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.MeasureSpec;
-import android.view.ViewGroup.LayoutParams;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 public class CameraActivity extends CreateFilmStripLauncher {
 
@@ -74,11 +65,11 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		imgs = new Bitmap[3];
 		btns = new ImageButton[3];
 		btns[0] = (ImageButton)findViewById(R.id.imageButton1);
-		btns[0].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
+		btns[0].setBackgroundColor(android.graphics.Color.GRAY);
 		btns[1] = (ImageButton)findViewById(R.id.imageButton2);
-		btns[1].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
+		btns[1].setBackgroundColor(android.graphics.Color.GRAY);
 		btns[2]  =(ImageButton)findViewById(R.id.imageButton3);
-		btns[2].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
+		btns[2].setBackgroundColor(android.graphics.Color.GRAY);
 		ViewTreeObserver vto = backdrop.getViewTreeObserver();
 		vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 
@@ -207,9 +198,9 @@ public class CameraActivity extends CreateFilmStripLauncher {
 
 	private void btnPressed(int i){
 		if(btnSelect>=0)
-			btns[btnSelect].setBackgroundColor(getResources().getColor(color.holo_blue_dark));
+			btns[btnSelect].setBackgroundColor(android.graphics.Color.GRAY);
 		btnSelect = i;
-		btns[i].setBackgroundColor(getResources().getColor(color.holo_blue_bright));
+		btns[i].setBackgroundColor(android.graphics.Color.BLACK);
 
 	}
 	public void MakeFilm(View v){

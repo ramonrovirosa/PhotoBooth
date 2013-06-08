@@ -34,6 +34,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="40dp"
                 android:onClick="btn1"
                 android:src="@drawable/camera_icon" />
 
@@ -42,6 +43,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="40dp"
                 android:onClick="btn2"
                 android:src="@drawable/camera_icon" />
 
@@ -50,6 +52,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+				android:layout_marginTop="40dp"
                 android:onClick="btn3"
                 android:src="@drawable/camera_icon" />
         </LinearLayout>
@@ -59,7 +62,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true" >
+            android:layout_alignParentRight="true" 
+            android:layout_marginBottom="10dp">
 
             <Button
                 android:id="@+id/button1"
