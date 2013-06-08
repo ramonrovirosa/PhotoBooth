@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewTreeObserver;
@@ -104,10 +105,12 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			public void onClick(View v) {
 				if(cameraUnlocked && btnSelect >= 0 && btnSelect < 3){
 					cameraUnlocked = false;
+					//focus(null);
 					mCamera.takePicture(null, null, mPicture);
 				}
 			}
 		});
+		
 	}
 	
 	
@@ -264,6 +267,10 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			initCamera();
 			paused = false;
 		}
+	}
+	
+	public void focus(View v){
+		mCamera.autoFocus(null);
 	}
 	
 }
