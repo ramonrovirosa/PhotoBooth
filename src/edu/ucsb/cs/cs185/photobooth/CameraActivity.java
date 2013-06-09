@@ -2,6 +2,7 @@ package edu.ucsb.cs.cs185.photobooth;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import android.app.ActionBar;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
+import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PictureCallback;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +26,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 public class CameraActivity extends CreateFilmStripLauncher {
 
@@ -140,17 +143,51 @@ public class CameraActivity extends CreateFilmStripLauncher {
 				 return null;
 			 }
 		}
-
+		c = setResolution(c);
+		
+		Camera.Size test = c.getParameters().getPictureSize();
+		String resMsg = "chosen size: height: "+test.height+" width: "+test.width;
+		Log.v("camera_debug",resMsg);
+		
 		c.setDisplayOrientation(90);
 		return c; // returns null if camera is unavailable
 	}
 
+	private Camera setResolution(Camera c){
+		//chooses the smallest resolution that is big enough for the strip
+		Parameters p = c.getParameters();
+		List<Camera.Size> sizes = p.getSupportedPictureSizes();
+		Camera.Size smallest = sizes.get(0);
+		for(Camera.Size size : sizes){
+			Log.v("camera_debug","supported resolution: height: "+size.height+" width: "+size.width);
+			
+			if(size.height >= FilmStripMaker.length && size.width >= FilmStripMaker.width){
+				if(size.width <= smallest.width && size.height <= smallest.height)
+					p.setPictureSize(size.width,size.height);
+			
+			}
+		}
+		c.setParameters(p);
+		return c;
+	}
+	
 	private PictureCallback mPicture = new PictureCallback() {
 
 		@Override
 		public void onPictureTaken(byte[] data, Camera camera) {
-			Bitmap img = Cropper.crop(data , frontMode);
-			if(img == null) return;
+			Bitmap img;
+			try{
+				img = Cropper.crop(data , frontMode);
+			} catch(Exception e){
+				Toast.makeText(getApplicationContext(), "An error has occured, likely out of memory.",Toast.LENGTH_LONG).show();
+				finish();
+				return;
+			}
+			if(img == null){
+				//handle error
+				finish();
+				return;
+			}
 			imgs[btnSelect] = img;
 			btns[btnSelect].setImageBitmap(Cropper.cropButton(img, (int)(btns[btnSelect].getWidth()*.85)));
 			mCameraPreview.reset();
