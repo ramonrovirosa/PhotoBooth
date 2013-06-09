@@ -217,7 +217,10 @@ public class GridGallery extends Activity {
 			if(resultCode == RESULT_OK){      
 		         modified=data.getBooleanExtra("modified", true); 
 		         //reset the image adapter here. Ramon probably needs to do this
-		         finish();
+		         if(modified){
+		        	 //reset this activity
+		        	 //finish();
+		         }
 		     }
 		     if (resultCode == RESULT_CANCELED) {    
 		         //do nothing for now

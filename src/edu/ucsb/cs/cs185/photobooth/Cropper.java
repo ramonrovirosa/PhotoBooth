@@ -10,6 +10,7 @@ public class Cropper {
 	public static Bitmap crop(byte [] data, boolean isFront){
 		
 		Bitmap original = BitmapFactory.decodeByteArray(data , 0, data.length);
+		data = null;
 		if(original==null)return null;
 		//these two are backwards from what you expect
 		int origHeight = original.getHeight();
@@ -25,20 +26,13 @@ public class Cropper {
 		
 		
 		Matrix matrix = new Matrix();
-		
-		
-		
 		if(isFront){
 			Matrix fmatrix = new Matrix();
 			fmatrix.postRotate(180);
 			scaled = Bitmap.createBitmap(scaled,0,0,
 					scaled.getWidth(),scaled.getHeight(),fmatrix,true);
 		}
-			
 		matrix.postRotate(90);
-		
-			
-		
 		
 		Bitmap cropped = Bitmap.createBitmap(scaled,0,0,
 				FilmStripMaker.length,FilmStripMaker.width,null,false);
@@ -59,10 +53,8 @@ public class Cropper {
 	}
 	
 	public static Bitmap cropButton(Bitmap image, int width){
-		
 		double scale = (double)image.getWidth()/width;
 		int height = (int)(image.getHeight() / scale);
-		
 		return Bitmap.createScaledBitmap(image, width, height, false);
 	}
 	

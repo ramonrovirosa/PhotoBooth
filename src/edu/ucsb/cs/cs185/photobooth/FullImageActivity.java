@@ -7,8 +7,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 public class FullImageActivity extends Activity {
@@ -16,7 +19,7 @@ public class FullImageActivity extends Activity {
 	ImageView imageView;
 	Uri uri;
 	int position;
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,12 +28,16 @@ public class FullImageActivity extends Activity {
 		Intent i = getIntent();
 		Integer pos = i.getIntExtra("Position", 0);
 		position = pos;
-		uri = Uri.fromFile(StoragePath.getSingleFile(this, pos));
-		ImageView imageView = (ImageView) findViewById(R.id.full_image_view);
-		// imageView.setImageResource(mThumbIds[position]);
-		imageView.setImageURI(uri);
+		imageView = (ImageView) findViewById(R.id.full_image_view);
+		getPhoto();
+		
 	}
 
+	private void getPhoto(){
+		uri = Uri.fromFile(StoragePath.getSingleFile(this, position));
+		imageView.setImageURI(uri);
+	}
+	
 	// ...
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

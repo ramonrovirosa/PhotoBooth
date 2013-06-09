@@ -105,7 +105,6 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			public void onClick(View v) {
 				if(cameraUnlocked && btnSelect >= 0 && btnSelect < 3){
 					cameraUnlocked = false;
-					//focus(null);
 					mCamera.takePicture(null, null, mPicture);
 				}
 			}
@@ -118,13 +117,10 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		CameraInfo ci = new CameraInfo();
 		for (int i = 0 ; i < Camera.getNumberOfCameras(); i++) {
 			Camera.getCameraInfo(i, ci);
-			if ((ci.facing == CameraInfo.CAMERA_FACING_FRONT))
-			{
+			if ((ci.facing == CameraInfo.CAMERA_FACING_FRONT)){
 				return i;
 			}
-
 		}
-
 		return CameraInfo.CAMERA_FACING_BACK; // No front-facing camera found
 	}
 
