@@ -6,7 +6,12 @@
         android:title="FLIP" 
         android:icon="@drawable/camera_flip2"
         android:scaleType="fitXY"
-        
+        />
+    <item
+        android:id="@+id/flash"
+        android:showAsAction="ifRoom"
+        android:title="FLASH" 
+        android:scaleType="fitXY"
         />
 
 </menu>

@@ -167,6 +167,7 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			
 			}
 		}
+		p.setFlashMode(Parameters.FLASH_MODE_OFF);
 		c.setParameters(p);
 		return c;
 	}
@@ -270,6 +271,9 @@ public class CameraActivity extends CreateFilmStripLauncher {
 			mCamera.release();
 			initCamera();
 			return true;
+		case R.id.flash:
+			toggleLight();
+			return true;
 		case android.R.id.home:
 			finishResult(false);
 			return true;
@@ -306,4 +310,17 @@ public class CameraActivity extends CreateFilmStripLauncher {
 		mCamera.autoFocus(null);
 	}
 	
+	private void toggleLight(){
+		Parameters p = mCamera.getParameters();
+		String mode = p.getFlashMode();
+		if(mode == null){
+			Toast.makeText(getApplicationContext(), "No flash available.", Toast.LENGTH_SHORT).show();
+			return;
+		} else if(mode.equals(Parameters.FLASH_MODE_TORCH)){
+			p.setFlashMode(Parameters.FLASH_MODE_OFF);
+		} else if(mode.equals(Parameters.FLASH_MODE_OFF)){
+			p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+		}
+		mCamera.setParameters(p);
+	}
 }

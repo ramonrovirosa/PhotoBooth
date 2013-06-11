@@ -30,12 +30,8 @@
     
      <item
         android:title="Home"
-        android:showAsAction="ifRoom"
+        android:showAsAction="always"
         android:id="@+id/home"
         android:icon="@drawable/home" />
-    
-    
 
-	
-    
 </menu>
