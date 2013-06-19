@@ -10,7 +10,7 @@ import android.os.Environment;
 import android.util.Log;
 
 public class StoragePath {
-
+	
 	/**
 	 * Returns a single filepath to the film strip directory.
 	 * To be used by all activities.
