@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 public class StorageReadWrite {
 
+	//todo: change to string_app_name + '_'
 	public static final String fileHeader = "PhotoBooth_";
 	
 	//returns true of successful, false if not
